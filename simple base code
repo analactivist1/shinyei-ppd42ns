@@ -27,7 +27,7 @@ SYSTEM_THREAD(ENABLED)
 TCPClient client; 
 
 #define THINGNAME "penguine_mighty" //change the name in the " " can be anything.  "upstairsbath"  This is for naming your device on dweet.io
-// I use the name that is given to the photon.  Don't use spaces.
+// I use the name that is given to the photon.  Don't use spaces. Go to  http://dweet.io/follow/thingname  to see the results in your browser. change "thingname" to your thingname
 const String publicKey = "n1Ey4VJp0yi6V8onKzbQ";  // for spark publishing.  They give you these codes when you start a stream at data.sparkfun.com
 const String privateKey = "MorlM9zBElTjGpD5MePK";  // for spark publishing
 
