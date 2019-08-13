@@ -26,7 +26,7 @@ SYSTEM_THREAD(ENABLED)
 
 TCPClient client; 
 
-#define THINGNAME "penguine_mighty" //change the name in the " " can be anything.  "upstairsbath"  This is for naming your device on dweet.io
+#define THINGNAME "penguin_mighty" //change the name in the " " can be anything.  "upstairsbath"  This is for naming your device on dweet.io
 // I use the name that is given to the photon.  Don't use spaces. Go to  http://dweet.io/follow/thingname  to see the results in your browser. change "thingname" to your thingname
 
 
