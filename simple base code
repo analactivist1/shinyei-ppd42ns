@@ -28,8 +28,7 @@ TCPClient client;
 
 #define THINGNAME "penguine_mighty" //change the name in the " " can be anything.  "upstairsbath"  This is for naming your device on dweet.io
 // I use the name that is given to the photon.  Don't use spaces. Go to  http://dweet.io/follow/thingname  to see the results in your browser. change "thingname" to your thingname
-const String publicKey = "n1Ey4VJp0yi6V8onKzbQ";  // for spark publishing.  They give you these codes when you start a stream at data.sparkfun.com
-const String privateKey = "MorlM9zBElTjGpD5MePK";  // for spark publishing
+
 
 void setup()
 {
@@ -49,10 +48,10 @@ void setup()
     
     analogWrite(LEDpower, brightness); //turns on the LEDpower pin to whatever brightness power you have choosen.  It will stay on.
      
-    digitalWrite(REDled, LOW); // turn the Red LED on while waiting for the 2 minute warmup
+    digitalWrite(REDled, LOW); // turn the Red LED on while waiting for the sensor to warmup
     digitalWrite(GREENled, HIGH);
     digitalWrite(BLUEled, HIGH);
-    delay(120000); //this delays the sensor for 2 minutes while it warms up
+    delay(120000); //this delays the sensor for 2 minutes while it warms up.  You can change this.
     
 }
 
@@ -137,27 +136,7 @@ void loop(){ // Sensor reading code written by Matthew Schroyer, MentalMunition.
            // ends publishing to DWEET
            
            
-    // Start publishing to sparkfun.  This is a different service that can store your data and let you retrieve a spreadsheet.
-    // First go to data.sparkfun.com to setup your feed.  They will give you a public and private key that you will neeed to use.
-    //https://data.sparkfun.com/streams/publickeygoeshere  to see on browser
-    //https://data.sparkfun.com/streams/n1Ey4VJp0yi6V8onKzbQ  this is an example of the address to go to to see your results. 
-    if (client.connect("data.sparkfun.com", 80)) {
- 
-   
-    client.print("GET /input/");
-    client.print(publicKey);
-    client.print("?private_key=");
-    client.print(privateKey);
-    client.print("&pm25=");  //seems like you must use lower case labels
-    client.print(PM25);
-    client.print("&ratiop2=");
-    client.print(ratioP2);
-    client.println(" HTTP/1.1");
-    client.print("Host: ");
-    client.println("data.sparkfun.com");
-    client.println("Connection: close");
-    client.println();
-  }
+    
   
    durationP2 = 0;  //resets the lowpulseoccupancy back to zero to start the next sample
       starttime = millis(); // set the start time to what time it is now.  
@@ -166,7 +145,3 @@ void loop(){ // Sensor reading code written by Matthew Schroyer, MentalMunition.
 }
     
     }
-    
-
-    
-  
